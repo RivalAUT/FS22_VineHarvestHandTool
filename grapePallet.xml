@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<vehicle type="pallet" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="$shared/xml/schema/vehicle.xsd">
+    <annotation>Copyright (C) GIANTS Software GmbH, All Rights Reserved.</annotation>
+
+    <storeData>
+        <name>$l10n_storeItem_grapePallet</name>
+        <image>store_grapePallet.png</image>
+        <category>pallets</category>
+        <brand>LIZARD</brand>
+        <price>1000</price>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>grapeTools</category>
+        <financeCategory>OTHER</financeCategory>
+        <vertexBufferMemoryUsage>20736</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>4352</indexBufferMemoryUsage>
+        <textureMemoryUsage>1245184</textureMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+    </storeData>
+
+    <base>
+        <typeDesc>$l10n_typeDesc_pallet</typeDesc>
+        <filename>$data/objects/pallets/grapePallet/grapePallet.i3d</filename>
+		<size width="1.6" length="1.2" height="1.1" />
+        <canBeReset>false</canBeReset>
+        <components>
+            <component centerOfMass="0 0.1 0" solverIterationCount="10" mass="50"/>
+        </components>
+        <showInVehicleMenu>false</showInVehicleMenu>
+        <mapHotspot available="false" />
+    </base>
+
+    <fillUnit>
+        <fillUnitConfigurations>
+            <fillUnitConfiguration>
+                <fillUnits>
+                    <fillUnit unitTextOverride="$l10n_unit_literShort" fillTypes="GRAPE" capacity="550">
+                        <exactFillRootNode node="exactFillRootNode" />
+                    </fillUnit>
+                </fillUnits>
+            </fillUnitConfiguration>
+        </fillUnitConfigurations>
+    </fillUnit>
+
+    <fillVolume>
+        <fillVolumeConfigurations>
+            <fillVolumeConfiguration>
+                <volumes>
+                    <volume node="fillVolume" maxAllowedHeapAngle="10" fillUnitIndex="1" />
+                </volumes>
+            </fillVolumeConfiguration>
+        </fillVolumeConfigurations>
+    </fillVolume>
+
+    <dischargeable requiresTipOcclusionArea="false">
+        <dischargeNode node="dischargeNode" emptySpeed="110" fillUnitIndex="1" maxDistance="6" canStartDischargeAutomatically="true" >
+            <dischargeSound template="grapeFill" overwriteSharedSound="true"/>
+        </dischargeNode>
+    </dischargeable>
+
+    <dynamicMount triggerNode="dynamicMountTrigger" triggerForceAcceleration="4" additionalMountDistance="0.75" jointTransY="0.11" jointLimitToRotY="true"/>
+
+    <tensionBeltObject>
+        <meshNodes>
+            <meshNode node="tensionBeltMesh"/>
+        </meshNodes>
+    </tensionBeltObject>
+
+    <i3dMappings>
+        <i3dMapping id="grapePallet_component1" node="0>" />
+        <i3dMapping id="grapePallet_vis" node="0>0" />
+        <i3dMapping id="dynamicMountTrigger" node="0>0|0" />
+        <i3dMapping id="dischargeNode" node="0>0|1" />
+        <i3dMapping id="exactFillRootNode" node="0>0|2|0" />
+        <i3dMapping id="fillTrigger" node="0>0|2|1" />
+        <i3dMapping id="fillVolume" node="0>0|3" />
+        <i3dMapping id="tensionBeltMesh" node="0>0|4" />
+    </i3dMappings>
+</vehicle>

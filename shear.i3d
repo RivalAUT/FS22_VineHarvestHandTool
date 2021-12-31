@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="schereneu" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.2"/>
+  </Asset>
+
+  <Files>
+    <File fileId="1" filename="$data/shared/default_normal.png"/>
+    <File fileId="2" filename="shear_vmask.png"/>
+    <File fileId="3" filename="$data/shaders/vehicleShader.xml"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="shear_diffuse" materialId="4" diffuseColor="0.8 0.8 0.8 1" customShaderId="3" customShaderVariation="colorMask">
+      <Normalmap fileId="1"/>
+      <Glossmap fileId="2"/>
+      <CustomParameter name="RDT" value="0 0 0 0"/>
+      <CustomParameter name="dirtColor" value="0.2 0.14 0.08 0"/>
+      <CustomParameter name="colorMat0" value="1 0 0 1"/>
+      <CustomParameter name="colorMat1" value="0.05 0.05 0.05 6"/>
+      <CustomParameter name="colorMat2" value="1 1 1 4"/>
+      <CustomParameter name="colorMat3" value="0.1 0.1 1 1"/>
+      <CustomParameter name="colorMat4" value="1 1 0.1 1"/>
+      <CustomParameter name="colorMat5" value="0.05 0.05 0.05 1"/>
+      <CustomParameter name="colorMat6" value="1 0.1 1 1"/>
+      <CustomParameter name="colorMat7" value="0.1 1 1 1"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="shear.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <TransformGroup name="rebschere" nodeId="9">
+        <TransformGroup name="test" nodeId="10">
+          <TransformGroup name="test2" nodeId="18">
+            <TransformGroup name="graphics" rotation="90 90 0" scale="1.25 1.25 1.25" nodeId="19">
+              <Shape shapeId="1" name="Schere1" translation="-0.015 0.000662545 6.45485e-05" nodeId="20" materialIds="4" castsShadows="true" receiveShadows="true"/>
+              <Shape shapeId="2" name="Schere2" translation="-0.015 0.000662545 6.45485e-05" nodeId="21" materialIds="4" castsShadows="true" receiveShadows="true">
+                <Shape shapeId="3" name="Feder" translation="0.016 0.000755495 0.0137729" nodeId="22" materialIds="4" castsShadows="true" receiveShadows="true"/>
+              </Shape>
+            </TransformGroup>
+            <TransformGroup name="raycast" translation="0 0 0.03" nodeId="15"/>
+          </TransformGroup>
+        </TransformGroup>
+      </TransformGroup>
+  </Scene>
+
+</i3D>

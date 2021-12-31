@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="63">
+    <author>Rival</author>
+	<contributors>Kevin_J_Barton</contributors>
+    <version>0.1.1.0</version>
+     <title>
+        <en>Vine Hand-Harvest Pack</en>
+        <de>Wein-Handlese Pack</de>
+    </title>
+    <description>
+		<en>This pack contains a vineyard shear for grape hand harvest as well as a grape pallet for transport.</en>
+		<de>Dieses Pack enthält eine Weingartenschere zur Handlese von Trauben. Zusätzlich gibt es eine Palette mit passendem Tieflader zum Traubentransport.</de>
+    </description>
+    <iconFilename>icon.dds</iconFilename>
+    <multiplayer supported="true"/>
+	
+    <extraSourceFiles>
+        <sourceFile filename="scripts/VineHandToolActivateEvent.lua" />
+        <sourceFile filename="scripts/VineHandToolStateEvent.lua" />
+        <sourceFile filename="scripts/VineHandTool.lua" />
+    </extraSourceFiles>
+	
+	<l10n>
+        <text name="shopItem_vineHandTool"> 
+            <de>Weingartenschere</de>
+            <en>Vineyard shear</en>
+        </text>
+        <text name="function_vineHandTool"> 
+            <de>Mit einer Weingartenschere lassen sich Trauben ernten.</de>
+            <en>With a vineyard shear you can harvest grapes.</en>
+        </text>
+        <text name="function_vineOliveTransporter"> 
+            <de>Dieses Gerät eignet sich perfekt für den Traubentransport mit Traubenpaletten.</de>
+            <en>This tool suits perfectly for grape transport via grape pallets.</en>
+        </text>
+        <text name="action_setContainer"> 
+            <de>"%s" als Zielbehälter auswählen</de>
+            <en>Set "%s" as target container</en>
+        </text>
+        <text name="warning_tooFarAway"> 
+            <de>Zielbehälter ist zu weit entfernt. Bitte näher holen und neu auswählen!</de>
+            <en>Target container is too far away. Please bring it closer and reselect!</en>
+        </text>
+    </l10n>
+	
+	<storeItems>
+        <storeItem xmlFilename="shear.xml"/>
+        <storeItem xmlFilename="grapePallet.xml"/>
+        <storeItem xmlFilename="mhal4320.xml"/>
+    </storeItems>
+</modDesc>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<handTool xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../shared/xml/schema/handtool.xsd">
+    <storeData>
+        <name>$l10n_shopItem_vineHandTool</name>
+        <functions>
+            <function>$l10n_function_vineHandTool</function>
+        </functions>
+        <image>store.png</image>
+        <price>500</price>
+        <lifetime>600</lifetime>
+        <rotation>0</rotation>
+        <brand>LIZARD</brand>
+        <category>grapeTools</category>
+        <species>handTool</species>
+        <storeIconRendering>
+            <settings cameraXRot="-20" cameraYRot="40"/>
+        </storeIconRendering>
+    </storeData>
+
+    <handToolType>vineHandTool</handToolType>
+    <filename>shear.i3d</filename>
+
+    <handNode>
+        <firstPerson position="0.2 -0.1 -0.35" rotation="0 180 0" />
+        <thirdPerson position="0.2 -0.1 -0.35" rotation="0 0 0" />
+    </handNode>
+
+	<vineHandTool>
+		<raycast node="0|0|1"/>
+	</vineHandTool>
+	
+    <!--playerWorkStylePreset>chainsawSetStihl</playerWorkStylePreset-->
+
+</handTool>
