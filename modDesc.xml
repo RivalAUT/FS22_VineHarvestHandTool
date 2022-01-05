@@ -6,10 +6,12 @@
      <title>
         <en>Vine Hand-Harvest Pack</en>
         <de>Wein-Handlese Pack</de>
+	<fr>Vendanges manuelles</fr>
     </title>
     <description>
 		<en>This pack contains a vineyard shear for grape hand harvest as well as a grape pallet for transport.</en>
 		<de>Dieses Pack enthält eine Weingartenschere zur Handlese von Trauben. Zusätzlich gibt es eine Palette mit passendem Tieflader zum Traubentransport.</de>
+	    	<fr>Ce pack vous propose de vendanger à la main avec des sécateurs et des cuves palettisables pour le transport.</fr>
     </description>
     <iconFilename>icon.dds</iconFilename>
     <multiplayer supported="true"/>
@@ -22,24 +24,29 @@
 	
 	<l10n>
         <text name="shopItem_vineHandTool"> 
-            <de>Weingartenschere</de>
-            <en>Vineyard shear</en>
+		<de>Weingartenschere</de>
+           	<en>Vineyard shear</en>
+		<fr>Sécateur</fr>
         </text>
         <text name="function_vineHandTool"> 
-            <de>Mit einer Weingartenschere lassen sich Trauben ernten.</de>
-            <en>With a vineyard shear you can harvest grapes.</en>
+		<de>Mit einer Weingartenschere lassen sich Trauben ernten.</de>
+		<en>With a vineyard shear you can harvest grapes.</en>
+		<fr>Couper les grappes de raisin avec le sécateur.</fr>
         </text>
         <text name="function_vineOliveTransporter"> 
-            <de>Dieses Gerät eignet sich perfekt für den Traubentransport mit Traubenpaletten.</de>
-            <en>This tool suits perfectly for grape transport via grape pallets.</en>
+		<de>Dieses Gerät eignet sich perfekt für den Traubentransport mit Traubenpaletten.</de>
+		<en>This tool suits perfectly for grape transport via grape pallets.</en>
+		<fr>Cette palette-cuve est parfaite pour le transport des grappes (raisins/olives).</fr>		
         </text>
         <text name="action_setContainer"> 
-            <de>"%s" als Zielbehälter auswählen</de>
-            <en>Set "%s" as target container</en>
+		<de>"%s" als Zielbehälter auswählen</de>
+		<en>Set "%s" as target container</en>
+		<fr>Définir "%s" comme récipient cible</fr>
         </text>
         <text name="warning_tooFarAway"> 
-            <de>Zielbehälter ist zu weit entfernt. Bitte näher holen und neu auswählen!</de>
-            <en>Target container is too far away. Please bring it closer and reselect!</en>
+            	<de>Zielbehälter ist zu weit entfernt. Bitte näher holen und neu auswählen!</de>
+            	<en>Target container is too far away. Please bring it closer and reselect!</en>
+		<fr>Le récipient est trop éloigné. Rapprochez et sélectionnez le à nouveau !</fr>
         </text>
     </l10n>
 	
