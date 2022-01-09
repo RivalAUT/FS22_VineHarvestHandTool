@@ -22,7 +22,7 @@
 
     <handNode>
         <firstPerson position="0.2 -0.1 -0.35" rotation="0 180 0" />
-        <thirdPerson position="0.2 -0.1 -0.35" rotation="0 0 0" />
+        <thirdPerson position="0.1 -0.1 0.15" rotation="0 0 -90" />
     </handNode>
 
 	<vineHandTool>

@@ -172,7 +172,7 @@ function VineHandTool:update(dt, allowInput)
 			self.raycast.isRaycasting = false
 
 			self.isVineDetectionActive = false
-			if self.yieldContainer.isSet and self.yieldContainer.object:getFillUnitFreeCapacity(self.yieldContainer.fillUnitIndex, self.fillType, g_farmManager:getFarmById(self.player.farmId)) <= 0 then
+			if self.yieldContainer.isSet and self.yieldContainer.object:getFillUnitFreeCapacity(self.yieldContainer.fillUnitIndex, self.fillType) <= 0 then
 				g_currentMission:showBlinkingWarning(string.format(g_i18n:getText("warning_noMoreFreeCapacity"), g_fillTypeManager:getFillTypeByIndex(self.fillType).title), 4000)
 			end
 		end
@@ -222,7 +222,7 @@ function VineHandTool:updateTick(dt)
 end
 
 function VineHandTool:getCanHarvest()
-	if self.yieldContainer.isSet and self.yieldContainer.object:getFillUnitFreeCapacity(self.yieldContainer.fillUnitIndex, self.fillType, g_farmManager:getFarmById(self.player.farmId)) <= 0 then
+	if self.yieldContainer.isSet and self.yieldContainer.object:getFillUnitFreeCapacity(self.yieldContainer.fillUnitIndex, self.fillType) <= 0 then
 		return false
 	end
 	if self.wasLastActivated then
@@ -330,8 +330,8 @@ function VineHandTool:harvestCallback(placeable, area, totalArea, weedFactor, sp
 	local stubbleTillageFactor = 1
 	local rollerFactor = 1
 	local beeYieldBonusPerc = 0
-	local multiplier = g_currentMission:getHarvestScaleMultiplier(FruitType.GRAPE, sprayFactor, plowFactor, limeFactor, weedFactor, stubbleTillageFactor, rollerFactor, beeYieldBonusPerc)*1.1
-	local realArea = area * multiplier
+	local multiplier = g_currentMission:getHarvestScaleMultiplier(FruitType.GRAPE, sprayFactor, plowFactor, limeFactor, weedFactor, stubbleTillageFactor, rollerFactor, beeYieldBonusPerc)
+	local realArea = area * multiplier * g_currentMission:getFruitPixelsToSqm() * 1.1
 	local farmId = placeable:getOwnerFarmId()
 
 	--spec.currentCombineVehicle:addCutterArea(area, realArea, FruitType.GRAPE, spec.outputFillTypeIndex, 0, nil, farmId, 1)
@@ -348,7 +348,8 @@ function VineHandTool:harvestCallback(placeable, area, totalArea, weedFactor, sp
 		stats:updateStats("threshedHectares", ha)
 		stats:updateStats("workedHectares", ha)
 	end]]
-	self.yieldContainer.object:addFillUnitFillLevel(g_farmManager:getFarmById(self.player.farmId), self.yieldContainer.fillUnitIndex, realArea, self.fillType, ToolType.UNDEFINED, nil)
+	--self.yieldContainer.object:addFillUnitFillLevel(g_farmManager:getFarmById(self.player.farmId), self.yieldContainer.fillUnitIndex, realArea, self.fillType, ToolType.UNDEFINED, nil)
+	self.yieldContainer.object:addFillUnitFillLevel(self.yieldContainer.object:getOwnerFarmId(), self.yieldContainer.fillUnitIndex, realArea, self.fillType, ToolType.UNDEFINED, nil)
 	self.wasLastActivated = true
 	--local outputFillType = g_fruitTypeManager:getFillTypeIndexByFruitTypeIndex(FruitType.GRAPE)
 	--self.fillLevel = self.fillLevel + realArea
