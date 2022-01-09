@@ -222,10 +222,7 @@ function VineHandTool:updateTick(dt)
 end
 
 function VineHandTool:getCanHarvest()
-	if not self.yieldContainer.isSet then
-		return false
-	end
-	if self.yieldContainer.object:getFillUnitFreeCapacity(self.yieldContainer.fillUnitIndex, self.fillType, g_farmManager:getFarmById(self.player.farmId)) <= 0 then
+	if self.yieldContainer.isSet and self.yieldContainer.object:getFillUnitFreeCapacity(self.yieldContainer.fillUnitIndex, self.fillType, g_farmManager:getFarmById(self.player.farmId)) <= 0 then
 		return false
 	end
 	if self.wasLastActivated then
@@ -314,10 +311,12 @@ function VineHandTool:raycastCallbackVineDetection(hitActorId, x, y, z, distance
 end
 
 function VineHandTool:handleVinePlaceable(node, placeable, x, y, z)
-	if placeable ~= nil and self.yieldContainer.isSet then -- check if yield container is still set
+	if placeable ~= nil and self.yieldContainer.isSet then -- check if yield container is set
 		--local startX, startZ, widthX, widthZ, heightX, heightZ = placeable:getVineAreaByNode(node)
-		placeable:harvestVine(node, x-0.3, y, z-0.3, x+0.3, y, z+0.3, self.harvestCallback, self)
 		--placeable:harvestVine(node, widthX, y, widthZ, heightX, y, heightZ, self.harvestCallback, self)
+		placeable:harvestVine(node, x-0.3, y-0.1, z-0.3, x+0.3, y+0.1, z+0.3, self.harvestCallback, self)
+	elseif placeable ~= nil and not self.yieldContainer.isSet then -- if not, try to prepare vine
+		local area = placeable:prepareVine(node, x-0.4, y-0.1, z-0.4, x+0.4, y+0.1, z+0.4)
 	end
 
 	return true
